@@ -8,12 +8,6 @@ const nextConfig: NextConfig = {
       { protocol: "https", hostname: "i.pravatar.cc" },
     ],
   },
-  eslint: {
-    dirs: ["app", "components", "lib"],
-  },
-  typescript: {
-    tsconfigPath: "./tsconfig.json",
-  },
   outputFileTracingExcludes: {
     "*": ["./server/**/*"],
   },
