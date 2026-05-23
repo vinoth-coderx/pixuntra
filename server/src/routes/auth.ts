@@ -89,7 +89,7 @@ router.post("/logout", async (req, res, next) => {
   try {
     const token = req.cookies?.[SESSION_COOKIE];
     if (token) await Session.deleteOne({ token });
-    res.clearCookie(SESSION_COOKIE, { path: "/" });
+    res.clearCookie(SESSION_COOKIE, buildCookieOptions());
     return res.json({ ok: true });
   } catch (err) {
     return next(err);

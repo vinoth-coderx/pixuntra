@@ -12,6 +12,7 @@ import userRoutes from "./routes/users.js";
 import { initRealtime } from "./realtime.js";
 
 const app = express();
+app.set("trust proxy", 1);
 
 const PORT = Number(process.env.PORT ?? 5050);
 const CORS_ORIGIN =

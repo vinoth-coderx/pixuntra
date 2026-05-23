@@ -44,10 +44,11 @@ export function requireAuth(req: AuthedRequest, res: Response, next: NextFunctio
 }
 
 export function buildCookieOptions() {
+  const isProd = process.env.NODE_ENV === "production";
   return {
     httpOnly: true,
-    sameSite: "lax" as const,
-    secure: false,
+    sameSite: (isProd ? "none" : "lax") as "none" | "lax",
+    secure: isProd,
     path: "/",
     maxAge: SESSION_TTL_MS,
   };
